@@ -25,5 +25,5 @@ My shaping and visualization notebook can be found [here](https://github.com/Rob
 
 
 ## Explaining the Data
-The first thing that I really noticed was the age of some of these games. Counter-Strike makes it into the top ten based on my filtering, and that game came out in 2000! After several hours of hammering away at these datasets, I was able to refine myself to this clean display: ![Vis3](/assets/img/Vis3)
+The first thing that I really noticed was the age of some of these games. Counter-Strike makes it into the top ten based on my filtering, and that game came out in 2000! After several hours of hammering away at these datasets, I was able to refine myself to this clean display: ![Vis3](https://github.com/RobDBennett/RobDBennett.github.io/blob/master/assets/img/Vis3.JPG)
 
