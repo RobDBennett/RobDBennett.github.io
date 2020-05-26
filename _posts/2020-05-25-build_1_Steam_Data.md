@@ -2,7 +2,7 @@
 layout: post
 title: First Build! Steam Data!
 subtitle: What makes a game successful on Steam? by Rob Bennett
-cover-img: /assets/img/steam.jpg
+cover-img: /assets/img/gm-4e09aa7e-d962-47f5-bfca-93b1f81d581f-steam.jpg
 tags: [builds, blog]
 ---
 
