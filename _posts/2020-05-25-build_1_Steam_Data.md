@@ -27,3 +27,23 @@ My shaping and visualization notebook can be found [here](https://github.com/Rob
 ## Explaining the Data
 The first thing that I really noticed was the age of some of these games. Counter-Strike makes it into the top ten based on my filtering, and that game came out in 2000! After several hours of hammering away at these datasets, I was able to refine myself to this clean display: ![Vis3](https://github.com/RobDBennett/RobDBennett.github.io/blob/master/assets/img/Vis3.JPG)
 
+Not the prettiest, I know, but it contains a lot of interest, and at least to me, surprising data. I want to focus on two areas that this information jumped out at me for, and then I want to sum this up with some annidotal thoughts on it. First, lets look at the hours people sunk into these titles.
+
+![Vis1](https://github.com/RobDBennett/RobDBennett.github.io/blob/master/assets/img/Vis1.JPG)
+
+First off, notice that every single one of these titles has a *huge* difference between the Mean and Median time spent playing them. When I was first exploring this data, I was just going to go with the Mean as my metric, until I took a closer look at the data. Some players sunk an unbelievable amount of time into these titles. One player in Dota 2 had nearly two-thousand hours in just that game alone! If felt a little jarring, but when you look at the Median player's time in the games, you'll notice that it's a much more uniformed distribution.
+
+The second thing that I want to focus on are the reviews for these games.
+
+![Vis2](https://github.com/RobDBennett/RobDBennett.github.io/blob/master/assets/img/Vis2.JPG)
+
+I would have expected there to be a stronger correlation between positive reviews and hours the players invested into the game. While all of these games have a very high percentage of positive to negative reviews, you'll notice that the sheer amount of reviews really drops off the further they are from the #1 slot. 
+
+## Conclussion
+My first take-away from this is to breath a huge sigh of relief and realize that I'm not alone in my gaming habits. But back to the question: What makes a game successful on Steam? 
+
+It seems to break down into four major categories. 
+1- The title needs to be affordable. Every game in the top ten slot had a sale price of less than $8 dollars. That's bonkers, when you really think about it.
+2- It needs to include the 'Action' tag for the Genre. 9/10 of the list included the 'Action' tag.
+3- It needs to have a high 'replay' factor. Consider the age of these titles. Half of them weren't even released this decade, and one was released back in 2000. That tells me that there is a mix of nostalgia for sure, but these games also need to have some staying power. This is probably the hardest thing to pin-down, but a lot of these games also have multi-player group v group round style play for quick pick up games.
+4- Your title needs to have a lot of positive reviews. Word of mouth seems to be far more effective than advertising dollars. Games that have been out for awhile don't have people spending money to hype them up. They make their own sauce, as it were. If you have a game that people like, that momentum will carry them forward for many years to come.
