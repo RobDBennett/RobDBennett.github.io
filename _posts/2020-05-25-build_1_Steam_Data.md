@@ -23,7 +23,7 @@ After poking around for a bit, I found a few data sets that had more or less eve
 ## Shaping the Data
 My shaping and visualization notebook can be found [here](https://github.com/RobDBennett/DS-Unit-1-Build/blob/master/SteamDataShaping.ipynb) for those wanting to follow-along at home. Our first dataset was pretty clean already. There was an extra column, which was dropped easy enough. The second dataset was a bit more clunky with a lot of data that I don't need. I shave off a few of the items that I don't particularly care about for this exploration (like publisher and platform data). I merged the two datasets. The first dataset had some double entries since the play/purchase was a single column and if they played it reported 1.0 hours in the hours played column. 
 
-Then I did a hard look at the data again and found some very big errors that were going to taint my results. Many of the game titles hadn't translated corrected due to minor differences between the two sets of data. Primarily this was around sequel-like titles that included punctuation differences, or trademark style symbols like in the Call of Duty or Civilization series titles. I spent a few hours going through the top 30 games from the first data set to ensure that the metrics that I wanted were clear. While there was a sizeable portion of data lost, this was mostly for minor titles, and nothing in the top 20, which is where I was focusing my efforts anyway. Not wanting to confuse things further, I also filtered out the purchased aspects of this for a new dataframe and then I used that to explore the data a bit.
+Then I did a hard look at the data again and found some very big errors that were going to taint my results. Many of the game titles hadn't translated corrected due to minor differences between the two sets of data. Primarily this was around sequel-like titles that included punctuation differences, or trademark style symbols like in the Call of Duty or Civilization series titles. I spent a few hours going through the top 30 games from the first data set to ensure that the metrics that I wanted were clear. While there was a sizeable portion of data lost, this was mostly for minor titles, and nothing in the top 20, which is where I was focusing my efforts anyway. Not wanting to confuse things further, I also filtered out the purchased aspects of this for a new dataframe and then I explored the data a bit.
 
 
 ## Explaining the Data
@@ -31,7 +31,7 @@ The first thing that I really noticed was the age of some of these games. Counte
 
 ![Vis3](/assets/img/Vis3.JPG)
 
-Not the prettiest, I know, but it contains a lot of interesting, and at least to me, surprising data. I want to focus on two areas that this information jumped out at me for, and then I want to sum this up with some annidotal thoughts on it. First, let's look at the hours people sunk into these titles.
+Not the prettiest, I know, but it contains a lot of interesting, and at least to me, surprising data. I want to focus on two areas that jumped out at me, and then I want to sum this up with some annidotal thoughts on it. First, let's look at the hours people sunk into these titles.
 
 ![Vis1](/assets/img/Vis1.JPG)
 
