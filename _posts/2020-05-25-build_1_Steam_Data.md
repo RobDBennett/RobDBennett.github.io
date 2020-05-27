@@ -7,7 +7,7 @@ tags: [builds, blog]
 ---
 
 ## Defining the Question
-So what makes a game successful on Steam? There are a lot of ways to define 'success', so for now let's focus on how often a game is purchased, downloaded and played.
+So what makes a game successful on Steam? There are a lot of ways to define 'success', so for now let's focus on how many hours players sink into their titles.
   
 
 ## Exploring the Question
@@ -21,7 +21,9 @@ After poking around for a bit, I found a few data sets that had more or less eve
 
 
 ## Shaping the Data
-My shaping and visualization notebook can be found [here](https://github.com/RobDBennett/DS-Unit-1-Build/blob/master/SteamDataShaping.ipynb) for those wanting to follow-along at home. Our first dataset was pretty clean already. There was an extra column, which was dropped easy enough. The second dataset was a bit more clunky with a lot of data that I don't need. I shave off a few of the items that I don't particularly care about for this exploration (like publisher and platform data). I merged the two datasets. The first dataset had some double entries since the play/purchase was a single column and if they played it reported 1.0 hours in the hours played column. Not wanting to confuse things, I filtered out the purchased aspects of this for a new dataframe and then I used that to explore the data a bit.
+My shaping and visualization notebook can be found [here](https://github.com/RobDBennett/DS-Unit-1-Build/blob/master/SteamDataShaping.ipynb) for those wanting to follow-along at home. Our first dataset was pretty clean already. There was an extra column, which was dropped easy enough. The second dataset was a bit more clunky with a lot of data that I don't need. I shave off a few of the items that I don't particularly care about for this exploration (like publisher and platform data). I merged the two datasets. The first dataset had some double entries since the play/purchase was a single column and if they played it reported 1.0 hours in the hours played column. 
+
+Then I did a hard look at the data again and found some very big errors that were going to taint my results. Many of the game titles hadn't translated corrected due to minor differences between the two sets of data. Primarily this was around sequel-like titles that included punctuation differences, or trademark style symbols like in the Call of Duty or Civilization series titles. I spent a few hours going through the top 30 games from the first data set to ensure that the metrics that I wanted were clear. While there was a sizeable portion of data lost, this was mostly for minor titles, and nothing in the top 20, which is where I was focusing my efforts anyway. Not wanting to confuse things further, I also filtered out the purchased aspects of this for a new dataframe and then I used that to explore the data a bit.
 
 
 ## Explaining the Data
@@ -29,24 +31,24 @@ The first thing that I really noticed was the age of some of these games. Counte
 
 ![Vis3](/assets/img/Vis3.JPG)
 
-Not the prettiest, I know, but it contains a lot of interest, and at least to me, surprising data. I want to focus on two areas that this information jumped out at me for, and then I want to sum this up with some annidotal thoughts on it. First, let's look at the hours people sunk into these titles.
+Not the prettiest, I know, but it contains a lot of interesting, and at least to me, surprising data. I want to focus on two areas that this information jumped out at me for, and then I want to sum this up with some annidotal thoughts on it. First, let's look at the hours people sunk into these titles.
 
 ![Vis1](/assets/img/Vis1.JPG)
 
-First off, notice that every single one of these titles has a *huge* difference between the Mean and Median time spent playing them. When I was first exploring this data, I was just going to go with the Mean as my metric, until I took a closer look at the data. Some players sunk an unbelievable amount of time into these titles. One player in Dota 2 had nearly two-thousand hours in just that game alone! If felt a little jarring, but when you look at the Median player's time in the games, you'll notice that it's a much more uniform distribution.
+Notice that every single one of these titles has a *huge* difference between the Mean and Median time spent playing them. When I was first exploring this data, I was just going to go with the Mean as my metric, until I took a closer look at the data. Some players sunk an unbelievable amount of time into these titles. One player in Dota 2 had nearly two-thousand hours in just that game alone! It felt a little jarring, but when you look at the Median player's time in the games, you'll notice that it's a much more uniform distribution.
 
 The second thing that I want to focus on are the reviews for these games.
 
 ![Vis2](/assets/img/Vis2.JPG)
 
-I would have expected there to be a stronger correlation between positive reviews and hours the players invested into the game. While all of these games have a very high percentage of positive to negative reviews, you'll notice that the sheer amount of reviews really drops off the further they are from the #1 slot. 
+I would have expected there to be a stronger correlation between positive reviews and hours the players invested into the game. While all of these games have a very high percentage of positive to negative reviews, you'll notice that the sheer amount of reviews vary wildly. There does seem to be some correlation between the median amount of time that people spend in games and amount of positive reviews, but not enough to pin down. 
 
 ## Conclusion
-My first take-away from this is to breathe a huge sigh of relief and realize that I'm not alone in my gaming habits. But back to the question: What makes a game successful on Steam? 
+My first take-away from this is to breathe a huge sigh of relief and realize that I'm not alone in my gaming habits. It seems like a high percentage of players, if not the majority, will buy a title and not invest too much time into it. This makes me think that Steam is the gamer-equivalent of a gym membership: you purchase it and never really use it after that. But back to the question: What makes a game successful on Steam? 
 
 It seems to break down into four major categories. 
-1. The title needs to be affordable. Every game in the top ten slot had a sale price of less than $8 dollars. That's bonkers, when you really think about it.
-1. It needs to include the 'Action' tag for the Genre. 9/10 of the list included the 'Action' tag.
-1. It needs to have a high 'replay' factor. Consider the age of these titles. Half of them weren't even released this decade, and one was released back in 2000. That tells me that there is a mix of nostalgia for sure, but these games also need to have some staying power. This is probably the hardest thing to pin-down, but a lot of these games also have multiplayer group v group round style play for quick pick up games.
-1. Your title needs to have a lot of positive reviews. Word of mouth seems to be far more effective than advertising dollars. Games that have been out for awhile don't have people spending money to hype them up. They make their own sauce, as it were. If you have a game that people like, that momentum will carry them forward for many years to come.
+1. The title needs to be affordable. The top four slots are free-to-play titles, and the next five are under $10. That's bonkers, when you really think about it.
+1. It needs to include the 'Action' tag for the Genre. 7/10 of the list included the 'Action' tag.
+1. It needs to have a high 'replay' factor. Consider the age of these titles. Half of them weren't even released this decade, and one was released back in 2000. That tells me that there is a mix of nostalgia for sure, but these games also need to have some staying power. This is probably the hardest thing to pin-down, but a lot of these games also have multiplayer group v group round style play for quick pick up games and low investment rounds.
+1. Your title needs to have a lot of positive reviews. Word of mouth seems to be far more effective than advertising dollars. Games that have been out for awhile don't have people spending money to hype them up. They make their own sauce, as it were. If you have a game that people like, that momentum will carry them forward for many years to come. Look at Counter-Strike Global Offensive. This title is free, came out in 2012, and has 2.6 *million* positive reviews. That's not advertising you can buy.
 
