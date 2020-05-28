@@ -47,7 +47,7 @@ As something of a sanity check, I went through the top 10 purchased titles for t
 
 ![Vis4](/assets/img/Vis4.JPG)
 
-What is most surprising to me here is that Counter-Strike, plain old vanilla Counter-Strike, still ends up in the top 10 most purchased list. That means that this nearly two decade old title was still drawing new purchases in addition to have a clearly rabid fanbase. 
+What is most surprising to me here is that Counter-Strike, plain old vanilla Counter-Strike, still ends up in the top 10 most purchased list. That means that this nearly two decade old title was still drawing new purchases in addition to having a clearly rabid fanbase. 
 
 ## Conclusion
 My first take-away from this is to breathe a huge sigh of relief and realize that I'm not alone in my gaming habits. It seems like a high percentage of players, if not the majority, will buy a title and not invest too much time into it. This makes me think that Steam is the gamer-equivalent of a gym membership: you purchase it and never really use it after that. But back to the question: What makes a game successful on Steam? 
