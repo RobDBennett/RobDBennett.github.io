@@ -21,7 +21,7 @@ After poking around for a bit, I found a few data sets that had more or less eve
 
 
 ## Shaping the Data
-My shaping and visualization notebook can be found [here](https://github.com/RobDBennett/DS-Unit-1-Build/blob/master/SteamDataShaping.ipynb) for those wanting to follow-along at home. Our first dataset was pretty clean already. There was an extra column, which was dropped easy enough. The second dataset was a bit more clunky with a lot of data that I don't need. I shave off a few of the items that I don't particularly care about for this exploration (like publisher and platform data). I merged the two datasets. The first dataset had some double entries since the play/purchase was a single column and if they played it reported 1.0 hours in the hours played column. 
+My shaping and visualization notebook can be found [here](https://github.com/RobDBennett/DS-Unit-1-Build/blob/master/SteamDataVisualization.ipynb) for those wanting to follow-along at home. Our first dataset was pretty clean already. There was an extra column, which was dropped easy enough. The second dataset was a bit more clunky with a lot of data that I don't need. I shave off a few of the items that I don't particularly care about for this exploration (like publisher and platform data). I merged the two datasets. The first dataset had some double entries since the play/purchase was a single column and if they played it reported 1.0 hours in the hours played column. 
 
 Then I did a hard look at the data again and found some very big errors that were going to taint my results. Many of the game titles hadn't translated corrected due to minor differences between the two sets of data. Primarily this was around sequel-like titles that included punctuation differences, or trademark style symbols like in the Call of Duty or Civilization series titles. I spent a few hours going through the top 30 games from the first data set to ensure that the metrics that I wanted were clear. While there was a sizeable portion of data lost, this was mostly for minor titles, and nothing in the top 20, which is where I was focusing my efforts anyway. Not wanting to confuse things further, I also filtered out the purchased aspects of this for a new dataframe and then I explored the data a bit.
 
@@ -42,6 +42,12 @@ The second thing that I want to focus on are the reviews for these games.
 ![Vis2](/assets/img/Vis2.JPG)
 
 I would have expected there to be a stronger correlation between positive reviews and hours the players invested into the game. While all of these games have a very high percentage of positive to negative reviews, you'll notice that the sheer amount of reviews vary wildly. There does seem to be some correlation between the median amount of time that people spend in games and amount of positive reviews, but not enough to pin down. 
+
+As something of a sanity check, I went through the top 10 purchased titles for the same period, and came up with this:
+
+![Vis4](/assets/img/Vis4.JPG)
+
+What is most surprising to me here is that Counter-Strike, plain old vanilla Counter-Strike, still ends up in the top 10 most purchased list. That means that this nearly two decade old title was still drawing new purchases in addition to have a clearly rabid fanbase. 
 
 ## Conclusion
 My first take-away from this is to breathe a huge sigh of relief and realize that I'm not alone in my gaming habits. It seems like a high percentage of players, if not the majority, will buy a title and not invest too much time into it. This makes me think that Steam is the gamer-equivalent of a gym membership: you purchase it and never really use it after that. But back to the question: What makes a game successful on Steam? 
