@@ -4,6 +4,7 @@ title: Second Build: Police Shootings
 subtitle: How well can linear models predict police shootings? by Rob Bennett
 cover-img: /assets/img/police-disbanding-2.jpg
 tags: [builds, blog]
+comments: true
 ---
 
 ## Defining the Question
