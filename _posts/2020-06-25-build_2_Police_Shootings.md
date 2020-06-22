@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Second Build: Police Shootings
-subtitle: How well can linear models predict police shootings? by Rob Bennett
-cover-img: /assets/img/police-disbanding-2.jpg
+subtitle: Can I train a model to predict the race of a police shooting victim? by Rob Bennett
+cover-img: /assets/img/
 tags: [builds, blog]
 comments: true
 ---
