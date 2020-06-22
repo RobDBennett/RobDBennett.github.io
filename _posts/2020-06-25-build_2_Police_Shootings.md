@@ -31,6 +31,7 @@ I picked two models to do my primary explorations with. The first was a straight
 
 ## Explaining the Data
 I found that it was a bit easier to grasp the data if we took it in slices. I started with a distribution plot of the target spread about across their relative values. It did help draw the eye and visualize the data better.
+
 ![Distribution](/assets/img/*)
 
 Given the overall inaccuracy of the models, I generated a confusion matrix from the logistical model, and it shows that it only had much success in guessing white or black, which are the two most prevelant points in the data. Overall, a less than stellar performance.
