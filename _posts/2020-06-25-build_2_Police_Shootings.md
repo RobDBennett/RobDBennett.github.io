@@ -46,7 +46,7 @@ Using the permutation importances, I was able to focus in a bit a one-feature Pa
 
 Notice the relationship between Class 1 and 3. The encoded turned the various states into numbers along the line, but I want to draw the eye to one state and its relationship. State 9 is Washington, where I live. Notice the drop in relation between Class 1 and 3 in Washington? And notice the sizeable spike for Class 3? This was an unsettling revelation. 
 
-![PDP1F1B2](/assets/img/PDP1f1B2.jpg)
+![PDP1F1B2](/assets/img/PDP1f1B2.JPG)
 ![PDP1F2B2](/assets/img/PDP1f2B2.jpg)
 
 I then ran a two feature Partial Dependence plot between age and state, which had the two highest weights in our permutation importances. Both of these features have a high degree of cardinality, given that age is on a range of more or less 10-100, and states have a unique value for each state (plus Washington D.C.). Classes 0, 1 and 5 seem to have the highest interaction between age and state. It seems the general trend is for class 1 and 3 to be shot at a younger age generally, and the rest to be shot at older ages.
