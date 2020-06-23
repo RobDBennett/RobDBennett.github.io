@@ -32,31 +32,31 @@ I picked two models to do my primary explorations with. The first was a straight
 ## Explaining the Data
 I found that it was a bit easier to grasp the data if we took it in slices. I started with a distribution plot of the target spread about across their relative values. It did help draw the eye and visualize the data better.
 
-![Distribution](/assets/img/DistB2.jpg)
+![DistB2](/assets/img/DistB2.jpg)
 
 Given the overall inaccuracy of the models, I generated a confusion matrix from the logistical model, and it shows that it only had much success in guessing white or black, which are the two most prevelant points in the data. Overall, a less than stellar performance.
 
-![ConfusionMatrix](/assets/img/ConMatB2.jpg)
+![ConMatB2](/assets/img/ConMatB2.jpg)
 
 For the rest of these visualizations, I will focus on the XGB model. One of the things that we covered briefly this unit was the permutation importance. I found this to be vastly more informative than our previous horizontal bar graphs. Not surprisingly, the data reveals that the state that the shooting takes place in is the most instructive to the race of the victim. For the middle of the country, or states like Maine that have a vast racial disparity, this is more or less to be expected. For coastal cities, or those with more robust diversity, the data is a little more telling. 
 
-![PermutationImportance](/assets/img/PermImpB2.jpg)
+![PermImpB2](/assets/img/PermImpB2.jpg)
 
 Using the permutation importances, I was able to focus in a bit a one-feature Partial Dependence Plot. For these graphs, Class 0 is Asian, White is 1, Hispanic is 2, Black is 3, Native is 4, and 'Other' is 5. Class 1 and 3 are the two classes that have a high divergence from national, so lets focus on those.
 
 Notice the relationship between Class 1 and 3. The encoded turned the various states into numbers along the line, but I want to draw the eye to one state and its relationship. State 9 is Washington, where I live. Notice the drop in relation between Class 1 and 3 in Washington? And notice the sizeable spike for Class 3? This was an unsettling revelation. 
 
-![PDP1F1](/assets/img/PDP1f1B2.jpg)
-![PDP1F2](/assets/img/PDP1f2B2.jpg)
+![PDP1F1B2](/assets/img/PDP1f1B2.jpg)
+![PDP1F2B2](/assets/img/PDP1f2B2.jpg)
 
 I then ran a two feature Partial Dependence plot between age and state, which had the two highest weights in our permutation importances. Both of these features have a high degree of cardinality, given that age is on a range of more or less 10-100, and states have a unique value for each state (plus Washington D.C.). Classes 0, 1 and 5 seem to have the highest interaction between age and state. It seems the general trend is for class 1 and 3 to be shot at a younger age generally, and the rest to be shot at older ages.
 
-![PDP2F1](/assets/img/PDP2f1B2.jpg)
-![PDP2F2](/assets/img/PDP2f2B2.jpg)
+![PDP2F1B2](/assets/img/PDP2f1B2.jpg)
+![PDP2F2B2](/assets/img/PDP2f2B2.jpg)
 
 The last visualization I generated was the Shapley Values. I selected a row at random from the test set and found the variables that mattered the most. I want to point out a few things here. The data overwhelmingly has Body Cameras to 0 (meaning, they were off or not worn), so it has virtually no impact on any data. Though, the fact that the vast majority of these shooting have this column absent tells me that this is a real-life solution to some of the issues with violence. 
 
-![Shapley](/assets/img/ShapB2)
+![ShapB2](/assets/img/ShapB2)
 
 ## Conclusion
 This is a topic that ended up being a bit darker than I had hoped, and it was difficult to keep real life thoughts out of the data. Why are so few of these rated positive for body camera footage? Why are the shootings so high in general? Why are Black deaths so much higher than their national average for population distribution? The data can't really answer these questions, just point out that they *should* be asked. Regardless, it leaves me with a bitter taste and some harsh wonderings to review. 
