@@ -64,3 +64,5 @@ This is a topic that ended up being a bit darker than I had hoped, and it was di
 The models that I selected both beat the baseline, but there is some static on them. I looked into engineering new features; I scrapped demographic information and build that into the datasets, but from a hindsight perspective, it leaked into the data quite a bit. Even with a wide variety of racial differences (New Mexico, Maine, and Alabama all have vastly different demographics), the models were quickly able to draw the similarities and predict with a 95% accuracy. I didn't care for that. Removing those elements caused there to be a more true model. I also tried to peel off some of the existing features for the noise they created, but it resulted in more or less the same accuracy.
 
 All and all, these models were not terribly helpful.
+
+These findings are also available in a more pleasing web app found: [here](https://police-shooters-build-2.herokuapp.com/)
