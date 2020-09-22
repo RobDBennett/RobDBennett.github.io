@@ -8,54 +8,123 @@ comments: true
 ---
 
 ## Defining the Question
-So what makes a game successful on Steam? There are a lot of ways to define 'success', so for now let's focus on how many hours players sink into their titles.
+The SKLearn libraries have many different machine learning functions. They're simple to use and quick. But can we live without them?
   
 
 ## Exploring the Question
-I'm not sure how much of the population is like me. I've lost track of the number of times where I've loaded up Steam, extremely bored, and started flipping through their splash page of 'PLEASE DOWNLOAD ME!' games. There's almost always a sale. Something catches my eye, I click on it. The game looks interesting, I check the price, I argue with myself. I make some very compelling points, and I treat myself to a new game. And yet, after installing the game, I'll sink maybe two to five hours into it before losing interest and sacking it for a return to my old classics. I mean, I have to be an aberrant, right? I'm the guy that has like five-thousand hours tied up in the Civilization series.
-
-Well, let's sooth my suddenly rising concerns that I'm alone in this.
-
-
-## The Data
-After poking around for a bit, I found a few data sets that had more or less everything I needed to write a compelling point about my own habits. The first [dataset](https://www.kaggle.com/tamber/steam-video-games) is a break-down of a sampling for 200k Steam users, new games they bought, and how many hours they spent playing the titles. The other next [dataset](https://www.kaggle.com/nikdavis/steam-store-games) and it had a wealth of data, like the price of the title, some review data, release dates, and the genres tags from Steam.
+It's important to understand the mechanics of these machine learning tools, not just how to deploy them but the math that is happening behind the scene. For this build week, we are going to look at KNearestNeighbors. KNN is both a classifier and a regressive model. Its also deceptively easy to understand.
+I've always had a bit of an easier time understanding classification problems, and since this model functions with both, it is one of my favorites.
+The assignment itself is to implement this algorithm using as few libraries as possible. For the base model, we will only be using numpy. To implement the code and test it, we will be using a few sklearn libraries simply for ease of deployment. Namely the ever popular iris dataset, and the train_test_split model. While the train_test function is very straight forward to replicate, there isn't any necessity to do that here so we will be importing. 
+The model will be fully capable of handling larger problems, though it will slow down a bit. I will consider adding caching to future explorations of this problem.
 
 
-## Shaping the Data
-My shaping and visualization notebook can be found [here](https://github.com/RobDBennett/DS-Unit-1-Build/blob/master/SteamDataVisualization.ipynb) for those wanting to follow-along at home. Our first dataset was pretty clean already. There was an extra column, which was dropped easy enough. The second dataset was a bit more clunky with a lot of data that I don't need. I shave off a few of the items that I don't particularly care about for this exploration (like publisher and platform data). I merged the two datasets. The first dataset had some double entries since the play/purchase was a single column and if they played it reported 1.0 hours in the hours played column. 
+## Understanding the Math
+KNN is a supervised learning method, meaning that you need to provide it with labeled data. It takes measurements between x,y in the training data. The goal is to find a function h:X -> Y so that having an unknown observation can positively predict the identical output y. The way we find this relationship is with the Euclidean metric. Regression and classifications are resolved the same way; you state a number of neighbors that you are looking for, they act as defacto classifications. Given two arrays, the difference between each element is squared and then the square root is taken.
+The formula is shown:
 
-Then I did a hard look at the data again and found some very big errors that were going to taint my results. Many of the game titles hadn't translated corrected due to minor differences between the two sets of data. Primarily this was around sequel-like titles that included punctuation differences, or trademark style symbols like in the Call of Duty or Civilization series titles. I spent a few hours going through the top 30 games from the first data set to ensure that the metrics that I wanted were clear. While there was a sizeable portion of data lost, this was mostly for minor titles, and nothing in the top 20, which is where I was focusing my efforts anyway. Not wanting to confuse things further, I also filtered out the purchased aspects of this for a new dataframe and then I explored the data a bit.
+[image_1]
+
+Then x gets assigned to the class with the largest probability.
+
+[image_2]
+
+The best way to find the optimal K value is to repeat the calculations while iterating K along the odd numbers through a given range. Typically more than 50 neighbors gets messy. Once you have the optimal value, you can use that for further testing and training.
 
 
-## Explaining the Data
-The first thing that I really noticed was the age of some of these games. Counter-Strike makes it into the top ten based on my filtering, and that game came out in 2000! After several hours of hammering away at these datasets, I was able to refine myself to this clean display: 
+## Building the Class
+For this class, we will only be using the numpy library. While the KNN algorithm can be done with a series of functions, its much cleaner to simply put it in a class object to start. We will import numpy to start and then create the class for our KNearestNeighbors. The only value that we are starting with is k; its best to give this a default as part of best practice, but it can be changed when being used.
 
-![Vis3](/assets/img/Vis3.JPG)
+```
+import numpy as np
 
-Not the prettiest, I know, but it contains a lot of interesting, and at least to me, surprising data. I want to focus on two areas that jumped out at me, and then I want to sum this up with some annidotal thoughts on it. First, let's look at the hours people sunk into these titles.
 
-![Vis1](/assets/img/Vis1.JPG)
+class KNN:
+    def __init__(self, k=3):
+        """
+        Our model is built around the number of neighbors we are looking to find. 
+        Let k equal the assumed number of classifications.
+        """
+        self.k = k
+```
 
-Notice that every single one of these titles has a *huge* difference between the Mean and Median time spent playing them. When I was first exploring this data, I was just going to go with the Mean as my metric, until I took a closer look at the data. Some players sunk an unbelievable amount of time into these titles. One player in Dota 2 had nearly two-thousand hours in just that game alone! It felt a little jarring, but when you look at the Median player's time in the games, you'll notice that it's a much more uniform distribution.
+Our first method is to fit the data to the model. The method needs to ensure that the length of X and y are equal, otherwise we will have trouble down the road. X_train, y_train are what we will call this moving forward, and it will add these values to the class.
 
-The second thing that I want to focus on are the reviews for these games.
 
-![Vis2](/assets/img/Vis2.JPG)
+```
+    def fit(self, X, y):
+        """
+        This method will fit training data to the model. We also assert that then length
+        of the training data and targets are the same, otherwise the prediction method will break.
+        """
+        assert len(X) == len(y)
+        self.X_train = X
+        self.y_train = y
+```
 
-I would have expected there to be a stronger correlation between positive reviews and hours the players invested into the game. While all of these games have a very high percentage of positive to negative reviews, you'll notice that the sheer amount of reviews vary wildly. There does seem to be some correlation between the median amount of time that people spend in games and amount of positive reviews, but not enough to pin down. 
+We need to create a method that will calculate the Euclidean metrics for two arrays. This can be simply done with the scipy.spatial library, but we are doing this raw. Your method needs to take in two values. These are converted to np.arrays. You then instantiate the distance at a 0 value, which is the default distance for two numbers of the same value. We then need to find the difference between the two values and square them. This gives us the absolute value and makes the differences act larger. Finally, we return the squared values for the distances.
 
-As something of a sanity check, I went through the top 10 purchased titles for the same period, and came up with this:
+```
+    def distance(self, X1, X2):
+        """
+        The distance method finds the Euclidean distances between two relative points. There is 
+        a cleaner way to do this using the scipy.spatial library, but for the sake of completeness we have 
+        done this simple math here. The two arrays are compared, the differences between them are squared, 
+        and the square root is taken. The distance defaults to 0 for the case of a same value.
+        """
+        X1, X2 = np.array(X1), np.array(X2)
+        distance = 0
+        for i in range(len(X1) - 1):
+            distance += (X1[i] - X2[i]) ** 2
+        return np.sqrt(distance)
+```
 
-![Vis4](/assets/img/Vis4.JPG)
+The most complicated method is the predict method. You want to take in your X_test arguments. We begin by instantiating an empty list for our sorted_outputs. Then we generate a for loop iterating over the length of X_test. Within this for loop you want to create two other empty lists, one for distances and one for neighbors. These will hold our distance calculations and run our predictions.
+We need to nest another for loop into this one, running the length of the X_train data that should already be fitted to the model. Each iteration should calculate a distance using that instance of the X_train data and the overall distance of the X_test data. This calculation is added to the distances list.
+It is very important to sort this list; sklearn approach this from a different angle but this was the most efficient way that I found. Once it is sorted, you want to slice the list down to the most relevant datapoints, which will be 0:k (k being the total number of neighbors you are solving for).
+Once this list is sorted, you then run another for loop for each instance in the sliced distances where it appends the y_train value of the instance to a list. This essentially gives you a list of possible neighbors. 
+Once you take the max of that list, and append that value to your sorted outputs, you can return outputs and you will have a prediction on a given set of data.
 
-What is most surprising to me here is that Counter-Strike, plain old vanilla Counter-Strike, still ends up in the top 10 most purchased list. That means that this nearly two decade old title was still drawing new purchases in addition to having a clearly rabid fanbase. 
+```
+    def predict(self, X_test):
+        """
+        Method that takes the fitted model and runs the X_test data comparing
+        the Euclidean distances between each point. The values are sorted, and 
+        the highest values are stored to give a prediction on targets.
+        """
+        sorted_output = []
+        for i in range(len(X_test)):
+            distances = []
+            neighbors = []
+            for j in range(len(self.X_train)):
+                dist = self.distance(self.X_train[j], X_test[i])
+                distances.append([dist, j])
+            distances.sort()
+            distances = distances[0:self.k]
+            for d, j in distances:
+                neighbors.append(self.y_train[j])
+            ans = max(neighbors)
+            sorted_output.append(ans)
 
-## Conclusion
-My first take-away from this is to breathe a huge sigh of relief and realize that I'm not alone in my gaming habits. It seems like a high percentage of players, if not the majority, will buy a title and not invest too much time into it. This makes me think that Steam is the gamer-equivalent of a gym membership: you purchase it and never really use it after that. But back to the question: What makes a game successful on Steam? 
+        return sorted_output
+```
 
-It seems to break down into four major categories. 
-1. The title needs to be affordable. The top four slots are free-to-play titles, and the next five are under $10. That's bonkers, when you really think about it.
-1. It needs to include the 'Action' tag for the Genre. 7/10 of the list included the 'Action' tag.
-1. It needs to have a high 'replay' factor. Consider the age of these titles. Half of them weren't even released this decade, and one was released back in 2000. That tells me that there is a mix of nostalgia for sure, but these games also need to have some staying power. This is probably the hardest thing to pin-down, but a lot of these games also have multiplayer group v group round style play for quick pick up games and low investment rounds.
-1. Your title needs to have a lot of positive reviews. Word of mouth seems to be far more effective than advertising dollars. Games that have been out for awhile don't have people spending money to hype them up. They make their own sauce, as it were. If you have a game that people like, that momentum will carry them forward for many years to come. Look at Counter-Strike Global Offensive. This title is free, came out in 2012, and has 2.6 *million* positive reviews. That's not advertising you can buy.
+The final method for our KNN class is to give you the score for a given prediction. You need to ensure that your method accepts X_test and y_test arguments. It should create a list of predictions taken by running the X_test and running it through the predict method. The accuracy is returned by taking the predictions with the y_test and summing the values. You divide this by the length of the y_test to give you a percentage. Scoring only works if you have both the test values and their relative labels.
 
+```
+    def score(self, X_test, y_test):
+        """
+        This method takes the X_test and y_test, runs the data through the predict method.
+        The number of successful guesses are summed and compared to the total number in the test data.
+        """
+        predictions = self.predict(X_test)
+        return (predictions == y_test).sum() / len(y_test)
+```
+
+## Operating the Class
+
+
+
+## Comparison and Conclusion
+
+
+The repo for this build can be found here: https://github.com/RobDBennett/CS-Data-Science-Build-Week-1
