@@ -213,3 +213,8 @@ Building your own machine learning algorithm from scratch isn't that difficult, 
 That said, sklearn is a powerhouse of functionality. Even if you weren't going to use it for whatever reason, don't ignore their source code. There are a lot of good things hidden in those libraries, and its all open source. If you hit a stumbling block in development, there isn't any shame in referencing functional code and seeing where you are going wrong.
 
 The repo for this build can be found here: https://github.com/RobDBennett/CS-Data-Science-Build-Week-1
+I referenced the following works to construct the above code and tutorial:
+https://github.com/senavs/knn-from-scratch/blob/master/model/knn.py
+https://towardsdatascience.com/lets-make-a-knn-classifier-from-scratch-e73c43da346d
+https://medium.com/analytics-vidhya/implementing-k-nearest-neighbours-knn-without-using-scikit-learn-3905b4decc3c
+https://machinelearningmastery.com/tutorial-to-implement-k-nearest-neighbors-in-python-from-scratch/
