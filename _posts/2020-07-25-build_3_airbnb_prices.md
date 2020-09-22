@@ -1,37 +1,38 @@
 ---
 layout: post
-title: DS-Unit 1 Review
-subtitle: The episode where we cover the basics! by Rob Bennett
+title: Build 3- AirBNB Price Maximizing!
+subtitle: How can we maximize the listing price for an AirBnB stay? by Rob Bennett
 cover-img: /assets/img/Python_icon.png
-tags: [unit_review, blog]
+tags: [build, blog]
 comments: true
 ---
 
 ## Overview-
-The start of a new thing is always a stressful time. The first unit of Lambda was perhaps among the most nerve-wracking of my life. A lot of changes all happening at once. Juggling a baby and household while also finding the time to learn code was very challenging. Aside from some growing pains though, this unit wasn't terribly difficult. 
-We covered a lot of basic material. Sprint 1 was all about data wrangling, cleaning and figuring out how to make it tell you something. Sprint 2 was statistics and Sprint 3 was linear algebra. 
+The Unit-3 build was our first team building project with Lambda School. The Web students start group builds in Unit 1, so they have a lot more cross-over. This was a challenging experience because you have a week to get a project that you probably aren't that excited about off the ground, and learn how about 15 people operate as well. There are some benchmarks you need to hit, and well laid out milestones, but I still wouldn't call this an easy thing. 
+Our project was to maximize the listing price of a given AirBnB location. The locations were made by the user, and a ML algorithm should spit out a prediction on what the maximum price should be.
+
+The final project can be found here: https://buildweek.netlify.app/
   
 
-## Sprint 1- Data Wrangling
-Data wrangling is the subtle art of taking some sort of dataset and turning it into something manageable. In python we use the pandas library pretty extensively here. Also covered in this section were the making of functions and basic for loops. Honestly, I think this course could have benefitted from a more prolonged introduction to the language, but hey, we work with what we have.
-Python has a number of tools hardboiled into the system that allow for data to be played with and modified more easily. But most of the things you will do will be functions you make yourself. Since each dataset is different, each has a different 'dirty' element. Sometimes you have extra punctuation or strings, sometimes you have white space, sometimes you have things in the wrong columns or the types incorrect. Understanding how to construct your functions to clean your data is very important. With a bit of hindsight, this sprint has proven to provide some of the tools that we use more than any other tool. 
-The last part of this sprint was basic visualizations. This is still something that I need to work on a bit. Plotlyexpress, matplotlib and seaborn are all excellent tools. I am expecting that in the actual field, I will adopt whatever my employer wants me to use.
+## Sourcing the Data
+At the time of this project, AirBnB had shut down their API so getting fresh data was tricky. They have been having some concerns about Covid, and I imagine their business has been slowing down a bit because of the lack of travel. We went to Inside AirBnB for our data.
 
+http://insideairbnb.com/get-the-data.html
 
-## Sprint 2- Statistics
-I have to say, I remember stats being a beast in college. With python, though, this is a dream. What I love about stats is that they are all word problems and logic problems. The differences between Frequentist and Bayesian statistics is pretty fun to explore. I enjoy how you need to explore the question before really answering it. 
-For this sprint, we focused on a few different equations, most of which were found in the scipy.stats library. This library, as an aside, is very powerful and made a lot of those things that I remember making me cry years ago, rather simple to implement. 
-Our primary focus was on running T-Tests, Chi^2 tests, and understanding Bayesian things. Chi^2 tests require the use of crosstabs, so  you need to arrange your data appropriately. Then you can run the stats.chi2_contingency commands. 
-T-tests rely on stats.ttest_ind commands, and its pretty simple. 
+## Exploring the Data
+This data was incredibly dirty. Most of it was web-scrapped. Often the columns didn't match up, or the contents were wrong. Because so many things were entered by hundreds of end users, it was all over the place as far as uniformity goes. We were able to pick about 30 columns to fix, but even that was dicy. The benefit of these datasets is that they encompassed much of the globe, so they had stuff all over the place. 
+For our app we focused on the US and trimmed down as much as we could. The cleaned dataset still represented nearly 300mgs which was enough to slow our app deployment down considerably. 
 
+## Model
+The DS team elected to use a neural network for this problem. There were likely simpler models that would have performed as well, but they had just studied TensorFlow and wanted to flex their muscles a bit. I wasn't privy to most of the details as I was on the app side of things, but I watched some of their training and it was very exciting. 
 
-## Sprint 3- Linear Algebra
-Linear algebra is all about vectors. Vectors for days and days. My big take-away from this sprint is that the 3blue-1brown videos are amazing. Also, matrix work is far easier with the numpy linalg library. This stuff was the bane of my existence in high school and early college. I barely made it through; the repeatative calculations were tough. But with the help of python, its a breeze now. 
-We went through a lot of things unit, but the hardest to keep track of was all of the different notation. There is *a lot* of notation for linear algebra. Things to remember- a little arrow over a variable means its a vector. A big E references a matrix (or any letter), with -1 and T meaning invert and transpose. Havine solid lines surrounding a big letter means the determinant (which determines if its invertable). The Eigenvalues and Eigenvectors are vectors that change in the least way for a given transformation and don't change their orientation, where Eigenvalues are the magnitude of change on those vectors. 
-Also covered in this section were PCA and Clustering, which are both very important to understanding machine learning algorithms. PCA being principle component analysis, typically found with the PCA command, which needs to be fit usually compares PC1 to PC2 and so forth. Clustering is a simple method of machine learning that relies on Euclidean distances to determine how similar a given values is to each other.
+## The DS App
+For the DS side of things, we went with a Flask app. It was very simple, but I learned a great deal. As a for instance, did you know that Heroku doesn't support all version of TensorFlow? I didn't. Did you know that you have a lot of trouble using pipenv with TensorFlow when its not supported? I didn't. This was a learning experience all around. I had to continually get with the rest of the DS team to figure out their versions of things before updating my requirements.txt file so that Heroku would deploy correctly. 
+This was also my first time working with TensorFlow, and getting it wired into my app was a little tricky since I hadn't been trained on how the model worked or spat out outputs either. It wasn't terribly challenging, but was *really* eye opening for what this unit had covered with dockers, pipenv, and having something work on your machine, but no one elses.
 
+Our app can be found here: https://ds-bw-airbnb-2.herokuapp.com/
 
 ## Closing Thoughts
-In many ways, this was the most challenging unit. We didn't cover as much code as we do in future units, but the raw concepts we go over are legion. You have a week to refamilizing yourself with Stats, a week to understand and deploy linear algebra, and a week to figure out all of the basics of python and data stream-lining so that you will be able to run different ML programs on your data in the future. 
-There are many elements of this unit that I will no doubt have to review in the coming months, and I will keep all of my notebooks handy for on the job references!
+The cross functionality of web students and DS students was great. I got to see React in action a bit, though I didn't work with it much. It became very clear to me that they spoke almost another language, those web students. Previously I had thought that a software engineer wouldn't be viable if they weren't fluent it most coding languages, but it's been a long time since I was learning this stuff and now there are so many languages that seems impossible. Its all about quickly understanding syntax and getting some cross over on what the rest of the team needs. A very rewarding project.
 
+Our repo can be found here: https://github.com/Build-Week-Airbnb-2/DS
