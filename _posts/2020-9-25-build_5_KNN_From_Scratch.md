@@ -121,10 +121,95 @@ The final method for our KNN class is to give you the score for a given predicti
 ```
 
 ## Operating the Class
+Now that we have built the class, lets see how it performs. To begin, we will import our KNearestNeighbors model. I named the file that contained this knn.py, but you will need to point to your own file if you have a different naming convention.
+Also, import the iris dataset from sklearn as well as the train_test_split library. Replicating the train_test_split function isn't difficult, but also unnecessary for this assignment. 
+Finally, you'll want to import the KNeighborsClassifier from sklearn for when we run our comparisons. 
 
 
+```
+# This is the start of our notepad for testing the models. If you are pulling from my repo, you might need to change where the knn import points to.
+from sklearn.neighbors import KNeighborsClassifier
+from knn import *  # Pull in our model
+from sklearn.datasets import load_iris  # Test data from the sklearn directory.
+# This is an easy enough function to replicate, but this is cleaner.
+from sklearn.model_selection import train_test_split
+```
+
+Load in the iris dataset and run it through train_test_split. I used a test value of 20%, but you can use a different figure if you like.
+
+```
+# We will load in the toy data, and split it up so that its in a useable format for our models.
+iris = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(
+    iris.data, iris.target, random_state=42, test_size=0.2)
+```
+
+Now we follow the formula for using machine learning processes in python. We first cast the class to a variable and set our number of neighbors. For this assignment I used 3.
+
+```
+# We instantiate my model which uses only numpy.
+testing_neighbors = KNN(k=3)
+```
+
+We fit the model to our training data.
+
+```
+# We fit the model to the training data.
+testing_neighbors.fit(X_train, y_train)
+```
+
+We test to see that our predictions processes are working. This test yields an array with True/False tags represented as 1 or 0 for successfully guessing the proper classification.
+
+```
+# We run some predictions using the test sample data.
+prediction = testing_neighbors.predict(X_test)
+```
+
+Finally, we run our scoring method to see how well we did.
+
+```
+# We score the prediction accuracy.
+rob_pred = testing_neighbors.score(X_test, y_test)
+```
+
+For ease of use, I ran this as a print() command. Our accuracy is 96.67%. This is pretty respectable. If you really dig into the code, the reason we are scoring less than 100% here is because the Euclidean distance method is using numpy and a slightly simpler equation. If we were to use the scipy.spatial library (as I did in other tests), the accuracy is 100%. I'm guessing its a rounding error.
+
+```
+print('The accuracy of the "No SKLEARN model" is :', rob_pred)
+# Our model comes in at 96.667% accurate. The leakage here is by using a scratch Euclidean distance generator rather than the spatial one
+# found in scipy. This is an acceptable difference for the scratch benefits.
+```
+
+Now we should compare how our simple model performs against the sklearn model. We instantiate.
+
+```
+# The process is the sample for the true model. First we instantiate it.
+neigh = KNeighborsClassifier(n_neighbors=3)
+```
+
+We fit the training data to the model.
+
+```
+# Then we fit the training data.
+neigh.fit(X_train, y_train)
+```
+
+And then we run the scoring method.
+
+```
+# Then we find its score and compare the too.
+actual_preds = neigh.score(X_test, y_test)
+```
+
+The Sklearn model does a respectable 100% accurate breakdown. Ours is close enough to be acceptable for this example, but it just goes to show that sklearn is a very powerful series of tools and shouldn't be overlooked.
+
+```
+print("The accuracy of the SKLEARN model is:", actual_preds)
+# The sklearn model comes in with a 100% accuracy, which is understandable.
+```
 
 ## Comparison and Conclusion
-
+Building your own machine learning algorithm from scratch isn't that difficult, depending on the formula in question. The key is understanding the underlying math well enough to find code that replicates it. My big take-away here is that there are a plethora of resources available to assist with these sorts of tasks, and it isn't as intimidating as it felt at the start.
+That said, sklearn is a powerhouse of functionality. Even if you weren't going to use it for whatever reason, don't ignore their source code. There are a lot of good things hidden in those libraries, and its all open source. If you hit a stumbling block in development, there isn't any shame in referencing functional code and seeing where you are going wrong.
 
 The repo for this build can be found here: https://github.com/RobDBennett/CS-Data-Science-Build-Week-1
