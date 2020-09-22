@@ -22,11 +22,11 @@ The model will be fully capable of handling larger problems, though it will slow
 KNN is a supervised learning method, meaning that you need to provide it with labeled data. It takes measurements between x,y in the training data. The goal is to find a function h:X -> Y so that having an unknown observation can positively predict the identical output y. The way we find this relationship is with the Euclidean metric. Regression and classifications are resolved the same way; you state a number of neighbors that you are looking for, they act as defacto classifications. Given two arrays, the difference between each element is squared and then the square root is taken.
 The formula is shown:
 
-[image_1]
+![euclidean_formula](/assets/img/euclidean_formula.png)
 
 Then x gets assigned to the class with the largest probability.
 
-[image_2]
+![Euclidean_2](/assets/img/Euclidean_2.JPG)
 
 The best way to find the optimal K value is to repeat the calculations while iterating K along the odd numbers through a given range. Typically more than 50 neighbors gets messy. Once you have the optimal value, you can use that for further testing and training.
 
