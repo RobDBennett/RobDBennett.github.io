@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fifth Build- KNearestNeighbors
+title: Fifth Build! KNearestNeighbors without SKLEARN!
 subtitle: How do you create a KNearestNeighbors algorithim from scratch? by Rob Bennett
 cover-img: /assets/img/Data3classes_2.webp
 tags: [builds, blog]
