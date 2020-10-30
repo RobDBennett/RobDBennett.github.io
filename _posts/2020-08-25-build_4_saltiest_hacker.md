@@ -14,7 +14,7 @@ This was another project that was a little tricky. We had some API difficulties 
 ## Sourcing the Data
 Our data was a few years old, but with 700+megs of information, there was quite a large collection of commentors and their posts. The data was fairly clean to start, but it did include a lot of things that weren't necessary, like links to articles and what have you. We tried with a few lighter weight sets, but at the end of the day, this was the one to go with.
 
-Our source data can be found here: https://zenodo.org/record/45901#.X2p4N2hKiUl
+Our source data can be found [here](https://zenodo.org/record/45901#.X2p4N2hKiUl)
 
 ## Exploring the Data
 In order to get the data ready for NLP, we had to do a lot of streamlining. We cut down a lot of columns, tokenized and pulled stop words. We tried a method via beautiful soup that allowed us to keep emojis, but it ended up performing a little worse than just straight nltk. The process only took a few hours, but the whole team jumped on it and that was a good thing to see. While the rest of the team was a bit soft, the DS team was solid. 
@@ -25,9 +25,9 @@ We tried a few different models here. We deployed a Vader model, built a neural 
 ## The DS App
 The DS team put together a RapidApi app with some prebuilt scaffolding. It was able to allow you input a user and get their comments, select most salty and get a list of salty commentors, or look for salty comments in general. While some of the formatting can be difficult to weed through if you pick a high number, the speed that it operates is truly impressive. It took the whole team about three days to get the model properly wired in, with a near constant Zoom call going. Sometimes I think it would have been easier to just do this project solo, but having a lot of input definitely made this project feel very rich!
 
-Our DS app can be found here: https://saltiest-hacker-news.herokuapp.com/#/default/get_comments_comments__get
+Our DS app can be found [here](https://saltiest-hacker-news.herokuapp.com/#/default/get_comments_comments__get)
 
 ## Closing Thoughts
 This was a tricky project. It doesn't feel great to invest a lot of time into a project just to have it not fully deploy. The DS team hit all their marks, and hit them early (though not impressively early). Overall, this was a good learning experience to understand just what it would feel like to be attached to a team that wasn't quite succeeding, even though you personally are. Its a tricky feeling and I was quite ambivalent about it. 
 
-Our repo can be found here: https://github.com/bw-saltiest-hacker-1/DS
+Our repo can be found [here](https://github.com/bw-saltiest-hacker-1/DS)
