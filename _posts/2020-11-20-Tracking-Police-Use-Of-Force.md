@@ -2,7 +2,7 @@
 layout: post
 title: Labs! Tracking Police use of Force!
 subtitle: How can we best hold the watchmen accountable? by Rob Bennett
-cover-img: /assets/img/human_rights_first1.jpg
+cover-img: /assets/img/human-rights-first-dark.png
 tags: [builds, blog]
 comments: true
 ---
