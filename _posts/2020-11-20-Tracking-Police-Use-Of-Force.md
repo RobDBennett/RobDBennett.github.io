@@ -40,6 +40,8 @@ Using a variety of sources, ranging from the Washington Post, to the police brut
 The goal here is to have a single location that draws from multiple sources and compiles in a logical manner. The graphs are largely interactive, and a range of filters give end users many options on how best to engage this data. We were able to find a good deal of historical data on lethal police encounters, but there was are much less accurate reports of less than lethal police encounters. Tear gas, presence, tasering (that doesn't lead to shooting) and other forms of chemical force is less well tracked. For this we turned to social media, specifically the subreddit regarding police brutality, and some twitter. These are easy to access using the 2020PB API.
 
 
+![example_graph](/assets/img/example_hrt_graph1.png)
+
 ## Concerns and Fears To Overcome
 Outside of this project, I had concerns regarding the wealth of data that we could find. I had written a police-shootings app a few months back, and so this was not a new struggle for me. The complete lack of transparency is extremely troubling. The social ramifications are also difficult to fully 'grok'. As a majority class person, it is difficult to understand the minority, and projects like these run the risk of being tone-deaf 
 
