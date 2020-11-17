@@ -66,13 +66,26 @@ Once we had our vision, expectations, and list of user-stories populated, we bui
 The above details the work-flow for the Data Science team, along with all of the potential aspects of the project that we might be able to develop. Some elements we didn't have time for, or we didn't find proper sourcing (such is the case for the FBI database), others didn't prove fruitful such as the NLP model. The majority of these bullpoints were utilized in our product, however, and they are factual for this framework. This proved an excellent reference tool for all of the various teams. It was most utilized by the Backend Developer, which is where you can see the line going off camera.
 
 
-## Specific Work and Technical Challenges
-Words.
+## Technical Challenges and Specific Contributions
+The breadth of this project is actually quite large. In order to get even the most basic of user-stories completed, from a Data Science perspective, we had to dig deep for data. As was stated previously, this was where a considerable amount of time was spent. We evaluated the Twitter API via Tweepy as well as the Reddit API via PRAW. We consulted various datasets on Kaggle as well as some news outlet sources like the Washington Post. Due to time constraints, we wired into the 2020 Police Brutality API and collected data on police shootings from the MappingViolence data (which is rooted in the Washington Post material, but fortified with data regarding off-duty officer incidents, which were higher than I am comfortable with).
+
+The Data Science team was primarily responsible for wiring into specific APIs to draw new data. That data was shaped, cleaned a bit, and stored separately. We then created an API that provided numerous interactive visualizations for the Back-End Developer to wire into so the Front End could access easily. A specific example of this is here:
+
 ![code_snippet](/assets/img/HRF_Code_Snippet.JPG)
 
+This function connects directly to the 2020PB API which is updated regularly. For our purposes, we don't need multiple instances of the same report, so we shape the data using Pandas into something more manageable. Because we wanted the data within Link1 to be 'clickable', we had to apply some anchor tags, which we did using a function. This was a simple process, but made a big difference on end user experiences. 
 
-## Problems the rest of the team suffered
+The longest part of this function is applying geocoding. For this we used Nominatim and RateLimiter from the Geopy library. This required some shaping of the location data, as well as removing some uniform characters from the datapoints. After that, we put it into a graph with zoom, visible metrics, and clickable links. This is where we came across a rather major problem. Because the data that we had regarding each incident was limited to the city and state, as opposed to direct latitude/longitude addresses, incidents that happened within the same given time window in the same city simply stacked one atop the other. This meant that only the top incident was being viewed, which would give a user a misleading understanding of a given city's activity. We uncovered this error when looking at the data for Los Angeles, which had several instances but seemed to only show one no matter how far we zoomed in.
 
+To correct this problem, we imported the random library and wrote a separate function. The randomize function effectively kept the first 4 digits of the latitude and longitude intact, while shifting around the next 3-4 digits. This created a small variance in the individual incidents without moving them outside of the city limits. It was a clever, low cost solution. 
+
+The final aspect of this function was to package the visualization into a JSON format. Using the FastAPI scaffolding, we were able to easily create numerous POST and GET requests for the various images that we had created for Back-End to utilize.
+
+
+## Problems With the Rest of the Team
+The Web team had several setbacks that rocked the team early on, including the loss of a team member to a family emergency. Added to that, they were using Ploty, which was a new technology for them which generated some obstacles with deployment. We worked extensively with the Back-End developer to ensure that things went smoothly for the things that we could control. There were numerous little tweaks to make so that the visuals were more appealing, or the code more seamless. In fact, the above code was generated at the request of the Back End to honor the stakeholder's desire to have a more varied incident report. 
+
+The Back End clarified what they wanted to deliver to Front End, while translating the Front End technology so that we could understand it. We built some framework to wire into the API, and were able to pull a whole new set of metrics (in this case, non-lethal police use of force). We also pair-programmed a variety of minor problems, typically debugging code or looking things up so that the Back-End was able to work seamlessly. 
 
 
 ## The Project As of Now
