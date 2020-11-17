@@ -89,7 +89,9 @@ The Back End clarified what they wanted to deliver to Front End, while translati
 
 
 ## The Project As of Now
+As the team steps back from this project, we are fully aware that its still 'in progress'. While the graphs and mapping are largely functional as we coded them, they aren't seamless. Due to time constraints, our data limitations are still fairly severe, and we didn't deploy a Machine Learning model (though we did build out one). Still; all the APIs are functioning correctly, as well as the appropriate 
 
+[![Audi R8](http://img.youtube.com/vi/KOxbO0EI4MA/0.jpg)](https://www.youtube.com/watch?v=KOxbO0EI4MA "Audi R8")
 
 
 ## The Future of the Project
