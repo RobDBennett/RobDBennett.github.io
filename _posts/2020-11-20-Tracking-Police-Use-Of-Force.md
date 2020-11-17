@@ -89,14 +89,21 @@ The Back End clarified what they wanted to deliver to Front End, while translati
 
 
 ## The Project As of Now
-As the team steps back from this project, we are fully aware that its still 'in progress'. While the graphs and mapping are largely functional as we coded them, they aren't seamless. Due to time constraints, our data limitations are still fairly severe, and we didn't deploy a Machine Learning model (though we did build out one). Still; all the APIs are functioning correctly, as well as the appropriate 
+As the team steps back from this project, we are fully aware that its still 'in progress'. While the graphs and mapping are largely functional as we coded them, they aren't seamless. Due to time constraints, our data limitations are still fairly severe, and we didn't deploy a Machine Learning model (though we did build out one). Still; all the APIs are functioning correctly, as well as the appropriate data being displayed. 
 
+Here are some thoughts from the Data Science team about this project along with some examples:
+
+**Example of Embedding! CHANGE TO DS VIDEO WHEN COMPLETED**
 [![Audi R8](http://img.youtube.com/vi/KOxbO0EI4MA/0.jpg)](https://www.youtube.com/watch?v=KOxbO0EI4MA "Audi R8")
 
 
 ## The Future of the Project
+While there are some avenues for this project to explore, there are not that many *easy* options remaining. More work could be done to wire directly into the Twitter API and draw from their raw data. Unfortunately, there are limitations to how much data Twitter will allow, and trending stories can have thousands of tweets. This will necessitate extensive data cleaning, a primary database, and more NLP to be done to draw out hashtags and story integrity. Our preliminary efforts into this field came with lackluster results, even with a powerful library like NLTK. I think if our focus had been purely Twitter and we had more time, we could have made headway here. For now, there are simply too many users and stories to manually sort through.
 
+Another direction to go might allow users to report incidents themselves the way other APIs have allowed, like the 2020PB website. Some functionality could be added to the website that might allow a user to save specific stories, or search specific states over time, which we didn't get a chance to implement. Pulling in more story data is also an option, which might have allowed for searching based on keywords like proper names or tear-gas.
 
 
 ## Final Reflections
+This was a challenging project. From start to finish, it felt like we just didn't have enough time to really explore the space. However, with those challenges came great learning opportunities. We were able to take real-time feedback from the stakeholder to add features, and an open pipeline with the team really gave us some agility in responding to the rest of the team's needs. When the Back-End developer asked for a new endpoint, he was able to articulate it well and gave us the room to provide it. All issues were tackled promptly and thoroughly. 
 
+These sorts of projects are also excellent examples of real-world problems using real-world data. Finding and vetting sources, and then understanding the limitations of that data were key to delivering a viable end product. While there is still a national conversation on this topic, it is of critical importance to have as many eyes on the problem as possible. Struggling to find more information will hopefully lead to greater transparency and cooperation between the various police organizations. Its more than just numbers in a matrix; these are peoples lives and examples of a troubling trend towards authoritarian governance. 
