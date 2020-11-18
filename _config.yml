@@ -4,7 +4,7 @@
 title: Rob's Portfolio
 
 # Short description of your site
-description: A Place to Showcase Various DataScience Projects
+description: A Place to Showcase Various Data Science Projects
 
 # Your name to show in the footer
 author: Rob D. Bennett
@@ -41,9 +41,9 @@ social-network-links:
   email: "robbennett.work@gmail.com"
   facebook: therealMagicRob
   github: RobDBennett/
-#  twitter: daattali
+  twitter: RobBenn77370863
   rss: true
-#  reddit: yourname
+  reddit: Lonely_Use804
   linkedin: rob-bennett-b4b6a0104
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
@@ -81,7 +81,7 @@ excerpt_length: 50
 # Personalize the colors in your website. Colour values can be any valid CSS colour
 
 navbar-col: "#4a148c"
-navbar-text-col: "#c62828"
+navbar-text-col: "#000000"
 navbar-border-col: "#EAEAEA"
 page-col: "#FFFFFF"
 link-col: "#008AFF"
