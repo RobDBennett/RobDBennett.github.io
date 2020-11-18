@@ -35,7 +35,7 @@ The problem that we struggled with throughout this project was lack of data or t
 ## Our Solution
 Using a variety of sources, ranging from the Washington Post, to the police brutality tags in twitter and reddit, we built a robust pipeline of data through which we could generate clear visualizations and some interactive graphs.
 
-[Police_Violence_Tracker](https://d-fe.humanrightsfirst.dev/)
+[Police_Use of Force_Tracker](https://d-fe.humanrightsfirst.dev/)
 
 The goal here is to have a single location that draws from multiple sources and compiles in a logical manner. The graphs are largely interactive, and a range of filters give end users many options on how best to engage this data. We were able to find a good deal of historical data on lethal police encounters, but there was are much less accurate reports of less than lethal police encounters. Tear gas, presence, tasering (that doesn't lead to shooting) and other forms of chemical force is less well tracked. For this we turned to social media, specifically the subreddit regarding police brutality, and some twitter. These are easy to access using the 2020PB API.
 
@@ -90,11 +90,6 @@ The Back End clarified what they wanted to deliver to Front End, while translati
 
 ## The Project As of Now
 As the team steps back from this project, we are fully aware that its still 'in progress'. While the graphs and mapping are largely functional as we coded them, they aren't seamless. Due to time constraints, our data limitations are still fairly severe, and we didn't deploy a Machine Learning model (though we did build out one). Still; all the APIs are functioning correctly, as well as the appropriate data being displayed. 
-
-Here are some thoughts from the Data Science team about this project along with some examples:
-
-**Example of Embedding! CHANGE TO DS VIDEO WHEN COMPLETED**
-[![Audi R8](http://img.youtube.com/vi/KOxbO0EI4MA/0.jpg)](https://www.youtube.com/watch?v=KOxbO0EI4MA "Audi R8")
 
 
 ## The Future of the Project
