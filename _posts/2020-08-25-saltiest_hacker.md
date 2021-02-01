@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fourth Build! Saltiest HackerNews Commentors!
+title: Saltiest HackerNews Commentors!
 subtitle: Can we identify 'salty' commenters on HackerNews? by Rob Bennett
 cover-img: /assets/img/hackernews.png
 tags: [builds, blog]
