@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Third Build! AirBNB Price Maximizing!
+title: AirBNB Price Maximizing!
 subtitle: How can we maximize the listing price for an AirBnB stay? by Rob Bennett
 cover-img: /assets/img/airbnb.png
 tags: [builds, blog]
