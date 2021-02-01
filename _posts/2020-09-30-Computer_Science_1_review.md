@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CS-Unit 1 Review
+title: Basics of Computer Science Review
 subtitle: The episode where we cover the basics of Python but really its all about algorithms! by Rob Bennett
 cover-img: /assets/img/Python_icon.png
 tags: [unit_review, blog]
