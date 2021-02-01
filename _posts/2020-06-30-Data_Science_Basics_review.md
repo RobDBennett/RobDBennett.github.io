@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DS-Unit 2 Review
+title: Basic Data Science- Linear Models and Applied Modeling
 subtitle: The episode where we cover the basics of predictive models! by Rob Bennett
 cover-img: /assets/img/Python_icon.png
 tags: [unit_review, blog]
