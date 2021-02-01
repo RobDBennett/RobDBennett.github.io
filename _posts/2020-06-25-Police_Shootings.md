@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Second Build! Police Shootings
+title: Basic Police Shootings Predictions
 subtitle: Can I train a model to predict the race of a police shooting victim? by Rob Bennett
 cover-img: /assets/img/police-disbanding-2.jpg
 tags: [builds, blog]
