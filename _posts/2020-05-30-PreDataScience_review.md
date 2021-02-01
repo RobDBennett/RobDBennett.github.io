@@ -1,7 +1,7 @@
 ---
 layout: post
-title: DS-Unit 1 Review
-subtitle: The episode where we cover the basics! by Rob Bennett
+title: Python Basics, Statistics and Linear Algebra!
+subtitle: The episode where we cover what you need to know before you do Data Science! by Rob Bennett
 cover-img: /assets/img/Python_icon.png
 tags: [unit_review, blog]
 comments: true
