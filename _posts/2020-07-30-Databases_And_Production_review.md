@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DS-Unit 3 Review
+title: Intermediate Data Science Review- Databases and OOP
 subtitle: The episode where we cover the basics of OOP and databases! by Rob Bennett
 cover-img: /assets/img/Python_icon.png
 tags: [unit_review, blog]
