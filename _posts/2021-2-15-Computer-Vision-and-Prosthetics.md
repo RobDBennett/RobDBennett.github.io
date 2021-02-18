@@ -30,7 +30,7 @@ Because of the saccades, we can't simply take a snapshot of where the eye was to
 
 While we are tracking the eye movements, we are also tracking the hand and forearm movements. The glove is outfitted with over 70 sensors to track each joint, rotation, and orientation on each of the elements of the hand. Due to how Unity and the glove interact, each of these joints data is broken into two elements for Sin and Cos to better express these points. Some of this data is sparse or not terribly relevant. Hand kinesthetics are unique; for grip types, often times the thumb and first finger matter a great deal, but often the rest of the fingers are slaved to the first two fingers. There are also specific rotations of individual joints that aren't relevant.
 
-![wrist_pose](/assets/img/JointAngleLabelDirections.pdf)
+![wrist_pose](/assets/img/wrist.PNG)
 
 Using the hand kinesthetics as our labels, we are trying to use the eye data as our predictive data. Essentially, we are going to take visual data from sensors moving forward to predict what the hand *should* be doing. We are going to try a regression neural network to predict the range of each of these joints. Our other approach is going to be a categorical approach, where we take the hand data and push it through specific algorithms to generate three discrete categories: Vertical, Horizontal, and Slanted. 
 
