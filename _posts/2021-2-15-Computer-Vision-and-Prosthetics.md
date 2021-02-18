@@ -12,7 +12,7 @@ Can we utilize computer vision to build a better prosthetic?
 
 
 ## The Organization
-For this project, I am working with RomboLabs on the University of Washington campus under Professor Eric Rombokas. They are doing this research on behalf of the US Office of Veteran Affairs. Because the results of this research are still awaiting publication, I won't be including any links to repos, though I will include a few code snippets for illustration.
+For this project, I am working with RomboLabs on the University of Washington campus under Dr. Eric Rombokas. They are doing this research on behalf of the US Office of Veteran Affairs. Because the results of this research are still awaiting publication, I won't be including any links to repos, though I will include a few code snippets for illustration.
 
 
 ## Understanding the Problem
