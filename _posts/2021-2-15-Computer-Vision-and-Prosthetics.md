@@ -15,12 +15,12 @@ Can we utilize computer vision to build a better prosthetic?
 For this project, I am working with RomboLabs on the University of Washington campus under Professor Eric Rombokas. They are doing this research on behalf of the US Office of Veteran Affairs. Because the results of this research are still awaiting publication, I won't be including any links to repos, though I will include a few code snippets for illustration.
 
 
-##Understanding the Problem
+## Understanding the Problem
 Prosthetics are an exciting field of study in the world of robotics. They show a marked and immediate impact on people's lives, giving back vital pieces of humanity to those who have lost them. While they target a small portion of the population, the improvement that they offer is significant. 
 However, they are far from flawless. There are many different approaches to this particular topic. For this project, we are looking at the more common hand replacement, which is a claw style prosthetic that is operated by a shrug mechanism. That is to say, the operator 'shrugs' to open and close the claw. These are fixed orientation, or if they change, typically it is done with the other hand manually rotating the wrist. We can already see some limitations.
 
 
-##Our Solution
+## Our Solution
 Our hope is to utilize computer vision and simple robotics to generate a wrist mechanism that will evaluate objects and then predict the proper rotation needed to interact with the given object. There are several individuals working on this team, and I won't go into details on the robotics engineering specifically here.
 For our portion, we have a virtual reality headset and large glove utilizing a Unity program. A test subject gets into the rig and is show a variety of objects with different orientations. We then track their retina and their hand position.
 There are a few difficulties with tracking eye data, and we should discuss them briefly now. The human eye actually sees a very small portion of our field of vision at any given time. What we think we see is largely an extrapolation our brain generates based on changes to sees from one moment to the next. The reason for this is a movement the eye does called saccades; that is the eye jumps around to better build the image of thing you are seeing. These motions are involuntary and we are more or less unaware of them. These motions are one of the reason why humans track movement better than stationary objects, and why we have a specific frames-per-second that we can observe.
@@ -36,7 +36,7 @@ Using the hand kinesthetics as our labels, we are trying to use the eye data as 
 
 My focus for this project is the control aspects of the categorical neural network. 
 
-##The Software Engineering
+## The Software Engineering
 I tried a bunch of different approaches for the hand data. As a preprocessing method, we attempted to apply a clustering to see if we could find patterns in the data. Because the hand data covers 156 different aspects, traditional clustering methods didn't yield much positive results. 
 However, we did attempt to utilize the UMAP library to build a better manifold type clustering for the high dimensionality of the data. UMAP is a bit contraversal in its effectiveness, but we at least got interesting results on some of our test data. We executed this using the following code ('result' is the dataframe of our shaped hand observations) :
 ```
@@ -236,7 +236,7 @@ Our best results for this trials came with the following (some of which are not 
 * RandomUniform or Truncated
 * And learning rates around .001
 
-##The Next Steps
+## The Next Steps
 Using the above guidelines, we will begin a second batch of tests to see which models perform the best. It is my intention to test the depth of the convolutional aspects of the model primarily to see if we can squeeze out better performance if we shorten the convolutions or remove the dropout layers. As previously stated, we will implement early stopping for our actual model, so epochs aren't a hyperparameter that we will worry overly much about.
 
 This project is not completed and still awaiting publication. The next steps and final model will be discussed in future blog posts on this board.
