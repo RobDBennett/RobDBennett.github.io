@@ -136,7 +136,8 @@ def create_model(hparams):
   init_name = hparams[HP_INITIALIZER]
   
   model = tf.keras.Sequential([
-                               tf.keras.layers.Conv2D(hparams[HP_NUM_UNITS], kernel_size=(3,3), 
+                               tf.keras.layers.Conv2D(hparams[HP_NUM_UNITS], kernel_size=(3,3),
+                                                      kernel_initializer=init_name,
                                                       activation='relu', 
                                                       data_format='channels_first', 
                                                       input_shape=X_train[0].shape),
